@@ -15,6 +15,7 @@ The various web interfaces for the cluster are proxied and exposed on the host m
 ### Prerequisites
 * Minikube
 * GNU Make
+* Docker [`buildx` CLI plugin](https://github.com/docker/buildx?tab=readme-ov-file#installing)
 
 ### System Requirements
 * Minikube should have at least 8GB of memory and 4 CPUs for the sandbox to run properly (This can be changed in the `Makefile`).
