@@ -84,7 +84,7 @@ mount_work:
 .deployment/minikube_start: .deployment/check_deps
 	mkdir -p .deployment
 	@echo "$(BLUE)Starting minikube...$(CLEAR)"
-	minikube start --driver docker --extra-config=apiserver.service-node-port-range=1-65535 --dns-domain 127-0-0-1.nip.io  --ports 127.0.0.1:9864:9864,127.0.0.1:9870:9870,127.0.0.1:8020:8020,127.0.0.1:8042:8042,127.0.0.1:8089:8089,127.0.0.1:18080:18080,127.0.0.1:4040-4050:4040-4050 --cpus 4 --memory 8192
+	minikube start --driver docker --extra-config=apiserver.service-node-port-range=1-65535 --dns-domain localho.st  --ports 127.0.0.1:9864:9864,127.0.0.1:9870:9870,127.0.0.1:8020:8020,127.0.0.1:8042:8042,127.0.0.1:8089:8089,127.0.0.1:18080:18080,127.0.0.1:4040-4050:4040-4050 --cpus 4 --memory 8192
 	@echo "$(BLUE)Starting minikube...done$(CLEAR)"
 	touch .deployment/minikube_start
 

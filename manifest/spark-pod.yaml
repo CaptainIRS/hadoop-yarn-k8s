@@ -67,7 +67,7 @@ spec:
   initContainers:
     - name: init-namenode
       image: busybox
-      command: ['sh', '-c', "until nslookup namenode-0.namenode.hadoop.svc.127-0-0-1.nip.io; do echo Waiting for namenode to come online; sleep 2; done"]
+      command: ['sh', '-c', "until nslookup namenode-0.namenode.hadoop.svc.localho.st; do echo Waiting for namenode to come online; sleep 2; done"]
   terminationGracePeriodSeconds: 0
   setHostnameAsFQDN: true
   dnsPolicy: ClusterFirst

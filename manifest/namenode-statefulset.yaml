@@ -71,7 +71,7 @@ spec:
               readOnly: true
         - name: init-namenode
           image: busybox
-          command: ['sh', '-c', "until nslookup kube-dns.kube-system.svc.127-0-0-1.nip.io; do echo Waiting for namenode to come online; sleep 2; done"]
+          command: ['sh', '-c', "until nslookup kube-dns.kube-system.svc.localho.st; do echo Waiting for namenode to come online; sleep 2; done"]
       containers:
         - imagePullPolicy: Never
           image: hadoop-namenode

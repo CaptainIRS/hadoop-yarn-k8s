@@ -78,51 +78,51 @@ data:
     Listen 18080
 
     <VirtualHost *:9864>
-        ServerName datanode.hadoop.svc.127-0-0-1.nip.io
-        ServerAlias *.datanode.hadoop.svc.127-0-0-1.nip.io
+        ServerName datanode.hadoop.svc.localho.st
+        ServerAlias *.datanode.hadoop.svc.localho.st
 
         RewriteEngine On
         RewriteCond %{HTTP_HOST} ([^.]+)
-        RewriteRule ^/(.*) http://%1.datanode.hadoop.svc.127-0-0-1.nip.io:9864/$1 [P]
+        RewriteRule ^/(.*) http://%1.datanode.hadoop.svc.localho.st:9864/$1 [P]
 
-        <Proxy http://%1.datanode.hadoop.svc.127-0-0-1.nip.io:9864/$1>
+        <Proxy http://%1.datanode.hadoop.svc.localho.st:9864/$1>
             ProxySet disablereuse=on
         </Proxy>
     </VirtualHost>
 
     <VirtualHost *:8042>
-        ServerName datanode.hadoop.svc.127-0-0-1.nip.io
-        ServerAlias *.datanode.hadoop.svc.127-0-0-1.nip.io
+        ServerName datanode.hadoop.svc.localho.st
+        ServerAlias *.datanode.hadoop.svc.localho.st
 
         RewriteEngine On
         RewriteCond %{HTTP_HOST} ([^.]+)
-        RewriteRule ^/(.*) http://%1.datanode.hadoop.svc.127-0-0-1.nip.io:8042/$1 [P]
+        RewriteRule ^/(.*) http://%1.datanode.hadoop.svc.localho.st:8042/$1 [P]
         
-        <Proxy http://%1.datanode.hadoop.svc.127-0-0-1.nip.io:8042/$1>
+        <Proxy http://%1.datanode.hadoop.svc.localho.st:8042/$1>
             ProxySet disablereuse=on
         </Proxy>
     </VirtualHost>
 
     <VirtualHost *:9870>
-        ServerName namenode-0.namenode.hadoop.svc.127-0-0-1.nip.io
+        ServerName namenode-0.namenode.hadoop.svc.localho.st
         ProxyPass        / http://namenode-0.namenode:9870/
         ProxyPassReverse / http://namenode-0.namenode:9870/
     </VirtualHost>
 
     <VirtualHost *:8089>
-        ServerName resourcemanager-0.resourcemanager.hadoop.svc.127-0-0-1.nip.io
+        ServerName resourcemanager-0.resourcemanager.hadoop.svc.localho.st
         ProxyPass        / http://resourcemanager-0.resourcemanager:8089/
         ProxyPassReverse / http://resourcemanager-0.resourcemanager:8089/
     </VirtualHost>
 
     <VirtualHost *:18080>
-        ServerName spark.hadoop.svc.127-0-0-1.nip.io
+        ServerName spark.hadoop.svc.localho.st
         ProxyPass        / http://spark:18080/
         ProxyPassReverse / http://spark:18080/
     </VirtualHost>
 
     <VirtualHost *:4040>
-        ServerName spark.hadoop.svc.127-0-0-1.nip.io
+        ServerName spark.hadoop.svc.localho.st
         ProxyPass        / http://spark:4040/
         ProxyPassReverse / http://spark:4040/
     </VirtualHost>
@@ -138,7 +138,7 @@ spec:
   initContainers:
     - name: init-namenode
       image: busybox
-      command: ['sh', '-c', "until nslookup namenode-0.namenode.hadoop.svc.127-0-0-1.nip.io; do echo Waiting for namenode to come online; sleep 2; done"]
+      command: ['sh', '-c', "until nslookup namenode-0.namenode.hadoop.svc.localho.st; do echo Waiting for namenode to come online; sleep 2; done"]
   containers:
     - name: httpd
       image: httpd

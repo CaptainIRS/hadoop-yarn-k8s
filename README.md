@@ -33,14 +33,14 @@ The various web interfaces for the cluster are proxied and exposed on the host m
 
 ### Important URLs
 * Datanodes:
-    * datanode-0: http://datanode-0.datanode.hadoop.svc.127-0-0-1.nip.io:9864
-    * datanode-1: http://datanode-1.datanode.hadoop.svc.127-0-0-1.nip.io:9864
+    * datanode-0: http://datanode-0.datanode.hadoop.svc.localho.st:9864
+    * datanode-1: http://datanode-1.datanode.hadoop.svc.localho.st:9864
 * Node Managers:
-    * datanode-0: http://datanode-0.datanode.hadoop.svc.127-0-0-1.nip.io:8042
-    * datanode-1: http://datanode-1.datanode.hadoop.svc.127-0-0-1.nip.io:8042
-* Namenode: http://namenode-0.namenode.hadoop.svc.127-0-0-1.nip.io:9870
-* Resource Manager: http://resourcemanager-0.resourcemanager.hadoop.svc.127-0-0-1.nip.io:8089
-* Spark History Server: http://spark.hadoop.svc.127-0-0-1.nip.io:18080
+    * datanode-0: http://datanode-0.datanode.hadoop.svc.localho.st:8042
+    * datanode-1: http://datanode-1.datanode.hadoop.svc.localho.st:8042
+* Namenode: http://namenode-0.namenode.hadoop.svc.localho.st:9870
+* Resource Manager: http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8089
+* Spark History Server: http://spark.hadoop.svc.localho.st:18080
 
 ---
 

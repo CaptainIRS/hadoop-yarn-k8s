@@ -8,7 +8,7 @@ data:
     <configuration>
       <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://namenode-0.namenode.hadoop.svc.127-0-0-1.nip.io:9000</value>
+        <value>hdfs://namenode-0.namenode.hadoop.svc.localho.st:9000</value>
       </property>
       <property>
         <name>hadoop.http.filter.initializers</name>
@@ -24,7 +24,7 @@ data:
       </property>
       <property>
         <name>hadoop.http.cross-origin.allowed-origins</name>
-        <value>http://resourcemanager-0.resourcemanager.hadoop.svc.127-0-0-1.nip.io:8089</value>
+        <value>http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8089</value>
       </property>
       <property>
         <name>hadoop.http.staticuser.user</name>
@@ -78,11 +78,11 @@ data:
       </property>
       <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>resourcemanager-0.resourcemanager.hadoop.svc.127-0-0-1.nip.io</value>
+        <value>resourcemanager-0.resourcemanager.hadoop.svc.localho.st</value>
       </property>
       <property>
         <name>yarn.resourcemanager.webapp.address</name>
-        <value>resourcemanager-0.resourcemanager.hadoop.svc.127-0-0-1.nip.io:8089</value>
+        <value>resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8089</value>
       </property>
       <property>
         <name>yarn.webapp.ui2.enable</name>
