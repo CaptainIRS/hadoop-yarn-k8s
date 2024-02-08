@@ -75,7 +75,9 @@ data:
     Listen 9870
     Listen 8042
     Listen 8089
+    Listen 8188
     Listen 18080
+    Listen 19888
 
     <VirtualHost *:9864>
         ServerName datanode.hadoop.svc.localho.st
@@ -113,6 +115,18 @@ data:
         ServerName resourcemanager-0.resourcemanager.hadoop.svc.localho.st
         ProxyPass        / http://resourcemanager-0.resourcemanager:8089/
         ProxyPassReverse / http://resourcemanager-0.resourcemanager:8089/
+    </VirtualHost>
+
+    <VirtualHost *:8188>
+        ServerName resourcemanager-0.resourcemanager.hadoop.svc.localho.st
+        ProxyPass        / http://resourcemanager-0.resourcemanager:8188/
+        ProxyPassReverse / http://resourcemanager-0.resourcemanager:8188/
+    </VirtualHost>
+
+    <VirtualHost *:19888>
+        ServerName resourcemanager-0.resourcemanager.hadoop.svc.localho.st
+        ProxyPass        / http://resourcemanager-0.resourcemanager:19888/
+        ProxyPassReverse / http://resourcemanager-0.resourcemanager:19888/
     </VirtualHost>
 
     <VirtualHost *:18080>
@@ -182,6 +196,14 @@ spec:
       port: 8089
       targetPort: 8089
       nodePort: 8089
+    - name: "8188"
+      port: 8188
+      targetPort: 8188
+      nodePort: 8188
+    - name: "19888"
+      port: 19888
+      targetPort: 19888
+      nodePort: 19888
     - name: "18080"
       port: 18080
       targetPort: 18080

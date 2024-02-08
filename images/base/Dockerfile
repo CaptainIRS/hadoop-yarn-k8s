@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ENV HADOOP_VERSION 3.3.3
+ENV HADOOP_VERSION 3.3.6
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \

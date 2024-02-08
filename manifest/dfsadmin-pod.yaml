@@ -2,33 +2,29 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: spark
-  name: spark
+    app: dfsadmin
+  name: dfsadmin
   namespace: hadoop
 spec:
   clusterIP: None
-  ports:
-    - name: "18080"
-      port: 18080
-      targetPort: 18080
   selector:
-    app: spark
+    app: dfsadmin
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: spark
+  name: dfsadmin
   namespace: hadoop
   labels:
-    app: spark
+    app: dfsadmin
 spec:
   containers:
-    - name: spark
-      image: spark:latest
+    - name: dfsadmin
+      image: hadoop-dfsadmin:latest
       imagePullPolicy: Never
       volumeMounts:
-        - mountPath: /opt/spark/work-dir
-          name: spark-work-dir
+        - mountPath: /work
+          name: dfsadmin-work-dir
         - name: hadoop-conf
           mountPath: "/etc/hadoop/core-site.xml"
           subPath: core-site.xml
@@ -49,25 +45,14 @@ spec:
           mountPath: "/etc/hadoop/hadoop-env.sh"
           subPath: hadoop-env.sh
           readOnly: true
-        - name: spark-conf
-          mountPath: "/opt/spark/conf/spark-defaults.conf"
-          subPath: spark-defaults.conf
-          readOnly: true
-        - name: spark-conf
-          mountPath: "/opt/spark/conf/spark-env.sh"
-          subPath: spark-env.sh
-          readOnly: true
   volumes:
-    - name: spark-work-dir
+    - name: dfsadmin-work-dir
       hostPath:
         path: /work
         type: Directory
     - name: hadoop-conf
       configMap:
         name: hadoop-conf
-    - name: spark-conf
-      configMap:
-        name: spark-conf
   initContainers:
     - name: init-namenode
       image: busybox

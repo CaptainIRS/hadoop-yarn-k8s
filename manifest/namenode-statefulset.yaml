@@ -41,11 +41,15 @@ spec:
     spec:
       terminationGracePeriodSeconds: 0
       setHostnameAsFQDN: true
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       initContainers:
         - name: init-volume
           imagePullPolicy: Never
           image: hadoop-namenode
-          command: ['sh', '-c', 'if [ ! -f /data/hdfs/namenode/current/VERSION ]; then $HADOOP_HOME/bin/hdfs namenode -format; fi']
+          command: ['sh', '-c', 'if [ ! -f /data/hdfs/namenode/current/VERSION ]; then HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop $HADOOP_HOME/bin/hdfs namenode -format && find /data/; fi']
           volumeMounts:
             - name: namenode-data
               mountPath: "/data/hdfs"

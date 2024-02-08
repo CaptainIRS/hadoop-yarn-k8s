@@ -6,8 +6,7 @@ The sandbox can be started with a single command and will bring up a Hadoop YARN
 
 The various web interfaces for the cluster are proxied and exposed on the host machine automatically and can be accessed via the URLs listed below.
 
-> **Warning**
->
+> [!WARNING]
 > The sandbox is intended to be used for testing and development purposes only.
 
 ---
@@ -29,6 +28,11 @@ The various web interfaces for the cluster are proxied and exposed on the host m
 #### Running spark jobs
 * Run `make spark_exec` to exec into the spark pod.
 * The `work` directory is mounted as `/work` in the spark pod. You can copy your spark job to this directory and run it using `spark-submit`. (Use `--master yarn` to run the job on the YARN cluster.)
+* Or you can enter the spark shell using `spark-shell --master yarn` and run your spark jobs interactively.
+
+#### Managing the cluster or running MapReduce tasks
+* Run `make shell` to exec into the `dfsadmin` pod.
+* You can run HDFS commands using `hdfs dfs` or run MapReduce jobs using `yarn jar`.
 
 ---
 
@@ -41,6 +45,9 @@ The various web interfaces for the cluster are proxied and exposed on the host m
     * datanode-1: http://datanode-1.datanode.hadoop.svc.localho.st:8042
 * Namenode: http://namenode-0.namenode.hadoop.svc.localho.st:9870
 * Resource Manager: http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8089
+* Yarn UI 2: http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8089/ui2/
+* Yarn Timeline Server: http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:8188
+* Mapreduce Job History Server: http://resourcemanager-0.resourcemanager.hadoop.svc.localho.st:19888
 * Spark History Server: http://spark.hadoop.svc.localho.st:18080
 
 ---
@@ -57,5 +64,5 @@ The various web interfaces for the cluster are proxied and exposed on the host m
 
 ---
 
-### Roadmap
-- [ ] Add support for running HDFS commands using `dfsadmin`
+### License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
